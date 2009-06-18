@@ -1,8 +1,22 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <swg_services_file_v1 xmlns="urn:de.direct-netware.xmlns:swg.services.v1">
  <cp><account>
-  <profile_edit active='1' position='1' lang=''>
-   <title value='Edit profile' />
+  <profile_new active='1' position='1' lang=''>
+   <title value='Add new user' />
+   <description value='Add a new user profile.' />
+   <image value='list_cp_account_profile_new.png' />
+   <link value='m=cp&amp;s=account;profile&amp;a=new' type='url0' />
+   <guests value='0' />
+   <members value='0' />
+   <group>
+    <right value='srutype-ma' />
+    <right value='srutype-ad' />
+    <right value='cp_account' />
+   </group>
+  </profile_new>
+
+  <profile_edit active='1' position='2' lang=''>
+   <title value='Edit user' />
    <description value='Edit a user profile.' />
    <image value='list_cp_account_profile_edit.png' />
    <link value='m=cp&amp;s=account;profile&amp;a=edit' type='url0' />

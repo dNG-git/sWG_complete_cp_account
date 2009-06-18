@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<swg_lang_file_v1>
+
+ <cp><account>
+  <done><profile><new><input input="string" /></new></profile></done>
+
+  <email><target><input input="string" /></target></email>
+
+  <helper>
+   <registration>
+    <email>
+     <send><input input="string" /></send>
+     <target><input input="string" /></target>
+    </email>
+
+    <finalize><input input="string" /></finalize>
+   </registration>
+  </helper>
+
+  <profile><new><input input="string" /></new></profile>
+
+  <registration>
+   <input input="string" />
+   <email><send><input input="string" /></send></email>
+   <finalize><input input="string" /></finalize>
+  </registration>
+
+  <service><list><input input="string" /></list></service>
+
+  <title>
+   <registration><input input="string" /></registration>
+  </title>
+
+  <validation><for><registration><input input="string" /></registration></for></validation>
+ </account></cp>
+
+</swg_lang_file_v1>
