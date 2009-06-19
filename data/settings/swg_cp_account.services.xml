@@ -11,13 +11,13 @@
    <group>
     <right value='srutype-ma' />
     <right value='srutype-ad' />
-    <right value='cp_account' />
+    <right value='account_profile_new' />
    </group>
   </profile_new>
 
   <profile_edit active='1' position='2' lang=''>
    <title value='Edit user' />
-   <description value='Edit a user profile.' />
+   <description value='Edit an user profile.' />
    <image value='list_cp_account_profile_edit.png' />
    <link value='m=cp&amp;s=account;profile&amp;a=edit' type='url0' />
    <guests value='0' />
@@ -25,8 +25,21 @@
    <group>
     <right value='srutype-ma' />
     <right value='srutype-ad' />
-    <right value='cp_account' />
+    <right value='account_profile_new' />
    </group>
   </profile_edit>
+
+  <profile_reset active='1' position='3' lang=''>
+   <title value='Reset user data' />
+   <description value='Reset password or security ID for an user.' />
+   <image value='list_cp_account_profile_reset.png' />
+   <link value='m=cp&amp;s=account;profile&amp;a=reset' type='url0' />
+   <guests value='0' />
+   <members value='0' />
+   <group>
+    <right value='srutype-ad' />
+    <right value='account_profile_reset' />
+   </group>
+  </profile_reset>
  </account></cp>
 </swg_services_file_v1>

@@ -2,7 +2,12 @@
 <swg_lang_file_v1>
 
  <cp><account>
-  <done><profile><new><input input="string" /></new></profile></done>
+  <done>
+   <profile>
+    <new><input input="string" /></new>
+    <reset><input input="string" /></reset>
+   </profile>
+  </done>
 
   <email><target><input input="string" /></target></email>
 
@@ -17,7 +22,16 @@
    </registration>
   </helper>
 
-  <profile><new><input input="string" /></new></profile>
+  <profile>
+   <new><input input="string" /></new>
+
+   <reset>
+    <input input="string" />
+    <password><input input="string" /></password>
+    <secid><input input="string" /></secid>
+    <select><input input="string" /></select>
+   </reset>
+  </profile>
 
   <registration>
    <input input="string" />
@@ -28,6 +42,7 @@
   <service><list><input input="string" /></list></service>
 
   <title>
+   <profile><reset><input input="string" /></reset></profile>
    <registration><input input="string" /></registration>
   </title>
 
