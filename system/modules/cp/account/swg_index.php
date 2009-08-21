@@ -106,9 +106,7 @@ case "services":
 	$direct_cachedata['output_filter_fid'] = "cp_account_services";
 	$direct_cachedata['output_filter_source'] = urlencode (base64_encode ($direct_cachedata['page_this']));
 	$direct_cachedata['output_filter_text'] = "";
-
-	if ($direct_settings['user']['type'] == "gt") { $direct_cachedata['output_filter_tid'] = ""; }
-	else { $direct_cachedata['output_filter_tid'] = $direct_settings['uuid']; }
+	$direct_cachedata['output_filter_tid'] = $direct_settings['uuid'];
 
 	$g_task_array = direct_tmp_storage_get ("evars",$direct_settings['uuid'],"","task_cache");
 

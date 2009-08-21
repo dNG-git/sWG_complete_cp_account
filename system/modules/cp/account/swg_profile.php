@@ -156,9 +156,7 @@ $g_task_array = array (
 case "new":
 case "new-save":
 {
-	if ($direct_settings['a'] == "new-save") { $g_mode_save = true; }
-	else { $g_mode_save = false; }
-
+	$g_mode_save = (($direct_settings['a'] == "new-save") ? true : false);
 	if (USE_debug_reporting) { direct_debug (1,"sWG/#echo(__FILEPATH__)# _a={$direct_settings['a']}_ (#echo(__LINE__)#)"); }
 
 	if ($g_mode_save)
@@ -285,9 +283,7 @@ $g_vid_array = array (
 				{
 					$direct_cachedata['i_cusername'] = addslashes ($direct_cachedata['i_cusername']);
 					if (!strlen ($direct_cachedata['i_csend_email_to'])) { $direct_cachedata['i_csend_email_to'] = $direct_cachedata['i_cemail']; }
-
-					if (isset ($direct_settings['swg_redirect_url'])) { $g_redirect_url = $direct_settings['swg_redirect_url']; }
-					else { $g_redirect_url = $direct_settings['home_url']."/swg_redirect.php"; }
+					$g_redirect_url = ((isset ($direct_settings['swg_redirect_url'])) ? $direct_settings['swg_redirect_url'] : $direct_settings['home_url']."/swg_redirect.php");
 
 					$g_sendmailer_object = new direct_sendmailer_formtags ();
 					$g_sendmailer_object->recipients_define (array ($direct_cachedata['i_csend_email_to'] => $direct_cachedata['i_cusername']));
@@ -395,9 +391,7 @@ View form
 case "reset":
 case "reset-save":
 {
-	if ($direct_settings['a'] == "reset-save") { $g_mode_save = true; }
-	else { $g_mode_save = false; }
-
+	$g_mode_save = (($direct_settings['a'] == "reset-save") ? true : false);
 	if (USE_debug_reporting) { direct_debug (1,"sWG/#echo(__FILEPATH__)# _a={$direct_settings['a']}_ (#echo(__LINE__)#)"); }
 
 	if ($g_mode_save)
@@ -472,7 +466,7 @@ $g_task_array = array (
 Build the form
 ------------------------------------------------------------------------- */
 
-	$direct_classes['formbuilder']->entry_add_embed ("cuser",(direct_local_get ("core_username")),false,"m=dataport&s=swgap;account;selector&dsd=","s");
+	$direct_classes['formbuilder']->entry_add_embed ("cuser",(direct_local_get ("core_username")),false,"m=dataport&s=swgap;account;selector&dsd=",false,"s");
 	$direct_classes['formbuilder']->entry_add ("spacer");
 	$direct_classes['formbuilder']->entry_add_radio ("cpassword",(direct_local_get ("cp_account_profile_reset_password")),true);
 	$direct_classes['formbuilder']->entry_add_radio ("csecid",(direct_local_get ("cp_account_profile_reset_secid")),true);
@@ -530,9 +524,6 @@ $g_message .= (direct_local_get ("account_secid_howto","text")."
 				}
 
 				$g_message .= "[hr]\n(C) $direct_settings[swg_title_txt] ([url]{$direct_settings['home_url']}[/url])";
-
-				if (isset ($direct_settings['swg_redirect_url'])) { $g_redirect_url = $direct_settings['swg_redirect_url']; }
-				else { $g_redirect_url = $direct_settings['home_url']."/swg_redirect.php"; }
 
 				$g_sendmailer_object = new direct_sendmailer_formtags ();
 				$g_sendmailer_object->recipients_define (array ($g_user_array['ddbusers_email'] => $g_username));
