@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<swg_services_file_v1 xmlns="urn:de.direct-netware.xmlns:swg.services.v1">
+ <cp>
+  <account active='1' position='1' lang=''>
+   <title value='Account manager' />
+   <description value='Manager for users, groups and user rights.' />
+   <image value='list_cp_account.png' />
+   <link value='m=cp&amp;s=account;index&amp;a=services' type='url0' />
+   <guests value='0' />
+   <members value='0' />
+   <group>
+    <right value='srutype-ma' />
+    <right value='srutype-ad' />
+    <right value='cp_account' />
+   </group>
+  </account>
+ </cp>
+</swg_services_file_v1>
