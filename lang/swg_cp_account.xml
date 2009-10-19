@@ -27,6 +27,7 @@
 
    <reset>
     <input input="string" />
+    <message><input input="string" /></message>
     <password><input input="string" /></password>
     <secid><input input="string" /></secid>
     <select><input input="string" /></select>

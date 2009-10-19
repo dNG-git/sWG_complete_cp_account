@@ -283,7 +283,6 @@ $g_vid_array = array (
 				{
 					$direct_cachedata['i_cusername'] = addslashes ($direct_cachedata['i_cusername']);
 					if (!strlen ($direct_cachedata['i_csend_email_to'])) { $direct_cachedata['i_csend_email_to'] = $direct_cachedata['i_cemail']; }
-					$g_redirect_url = ((isset ($direct_settings['swg_redirect_url'])) ? $direct_settings['swg_redirect_url'] : $direct_settings['home_url']."/swg_redirect.php");
 
 					$g_sendmailer_object = new direct_sendmailer_formtags ();
 					$g_sendmailer_object->recipients_define (array ($direct_cachedata['i_csend_email_to'] => $direct_cachedata['i_cusername']));
@@ -313,6 +312,7 @@ All rights reserved");
 					}
 					else
 					{
+						$g_redirect_url = ((isset ($direct_settings['swg_redirect_url'])) ? $direct_settings['swg_redirect_url'] : $direct_settings['home_url']."/swg_redirect.php?");
 						$g_title = direct_local_get ("account_title_registration","text");
 
 $g_message = ("[contentform:highlight]".(direct_local_get ("core_message_by_administration","text"))."
@@ -324,7 +324,7 @@ $g_message = ("[contentform:highlight]".(direct_local_get ("core_message_by_admi
 ".(direct_local_get ("account_email","text")).": $direct_cachedata[i_cemail]
 ".(direct_local_get ("core_password","text")).": $g_password
 
-[url]$g_redirect_url?validation;{$g_vid}[/url]
+[url]{$g_redirect_url}validation;{$g_vid}[/url]
 
 ".(direct_local_get ("core_one_line_link","text"))."
 
@@ -503,7 +503,7 @@ Save data edited
 $g_message = ("[contentform:highlight]".(direct_local_get ("core_message_by_administration","text"))."
 
 [font:bold]".(direct_local_get ("core_message_to","text")).":[/font] $g_username ({$g_user_array['ddbusers_email']})[/contentform]
-".(direct_local_get ("cp_account_profile_reset","text"))."\n\n");
+".(direct_local_get ("cp_account_profile_reset_message","text"))."\n\n");
 
 				if ($direct_cachedata['i_cpassword'])
 				{
@@ -567,7 +567,7 @@ View form
 		direct_output_related_manager ("cp_account_profile_reset_form","post_module_service_action");
 		$direct_classes['output']->oset ("default","form");
 		$direct_classes['output']->header (false,true,$direct_settings['p3p_url'],$direct_settings['p3p_cp']);
-		$direct_classes['output']->header_elements ("<script language='JavaScript1.5' src='".(direct_linker_dynamic ("url0","s=cache&dsd=dfile+$direct_settings[path_mmedia]/swg_default_filter.php.js++dbid+".$direct_settings['product_buildid'],true))."' type='text/javascript'><!-- // Filter logic module // --></script>","javascript_swg_default_filter.php.js");
+		$direct_classes['output']->header_elements ("<script src='".(direct_linker_dynamic ("url0","s=cache&dsd=dfile+$direct_settings[path_mmedia]/swg_default_filter.php.js++dbid+".$direct_settings['product_buildid'],true))."' type='text/javascript'><!-- // Filter logic module // --></script>","javascript_swg_default_filter.php.js");
 		$direct_classes['output']->page_show ($direct_cachedata['output_formtitle']);
 	}
 	//j// EOA

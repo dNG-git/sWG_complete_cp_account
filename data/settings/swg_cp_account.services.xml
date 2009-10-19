@@ -3,7 +3,7 @@
  <cp><account>
   <profile_new active='1' position='1' lang=''>
    <title value='Add new user' />
-   <description value='Add a new user profile.' />
+   <description value='Add a new user profile to the database or send out an invitation.' />
    <image value='list_cp_account_profile_new.png' />
    <link value='m=cp&amp;s=account;profile&amp;a=new' type='url0' />
    <guests value='0' />
@@ -17,7 +17,7 @@
 
   <profile_edit active='1' position='2' lang=''>
    <title value='Edit user' />
-   <description value='Edit an user profile.' />
+   <description value='Edit user account data.' />
    <image value='list_cp_account_profile_edit.png' />
    <link value='m=cp&amp;s=account;profile&amp;a=edit' type='url0' />
    <guests value='0' />
