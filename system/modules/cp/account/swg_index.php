@@ -127,7 +127,7 @@ case "services":
 	direct_output_related_manager ("cp_account_index_services","post_module_service_action");
 	$direct_classes['output']->oset ("default","service_list");
 	$direct_classes['output']->header (false,true,$direct_settings['p3p_url'],$direct_settings['p3p_cp']);
-	$direct_classes['output']->header_elements ("<script src='".(direct_linker_dynamic ("url0","s=cache&dsd=dfile+$direct_settings[path_mmedia]/swg_formbuilder.js++dbid+".$direct_settings['product_buildid'],true,false))."' type='text/javascript'><!-- // FormBuilder javascript functions // --></script>");
+	$direct_classes['output']->header_elements ("<script src='".(direct_linker_dynamic ("url0","s=cache&dsd=dfile+$direct_settings[path_mmedia]/swg_formbuilder.php.js++dbid+".$direct_settings['product_buildid'],true,false))."' type='text/javascript'><!-- // FormBuilder javascript functions // --></script>");
 	$direct_classes['output']->page_show (direct_local_get ("cp_account_service_list"));
 	//j// EOA
 	}

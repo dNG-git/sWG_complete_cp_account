@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<swg_lang_file_v1 xmlns="urn:de.direct-netware.xmlns:swg.lang.v1">
+
+<de>
+<account>
+<string tid="fd1db4ebc1768305bf1bb6b61964bf8c" translation="Account-Verwaltung" />
+<string tid="59e75b85de95935ec97c36269ba12ee0" translation="Verwaltung von Benutzerdaten, Gruppen und der Benutzerrechte." />
+</account>
+</de>
+
+<de_formal>
+<account>
+<string tid="fd1db4ebc1768305bf1bb6b61964bf8c" translation="Account-Verwaltung" />
+<string tid="59e75b85de95935ec97c36269ba12ee0" translation="Verwaltung von Benutzerdaten, Gruppen und der Benutzerrechte." />
+</account>
+</de_formal>
+
+</swg_lang_file_v1>

@@ -523,7 +523,7 @@ $g_message .= (direct_local_get ("account_secid_howto","text")."
 					$g_user_array['ddbusers_secid'] = $g_secid;
 				}
 
-				$g_message .= "[hr]\n(C) $direct_settings[swg_title_txt] ([url]{$direct_settings['home_url']}[/url])";
+				$g_message .= "[hr]\n(C) $direct_settings[swg_title_txt] ([url]{$direct_settings['home_url']}[/url])\nAll rights reserved";
 
 				$g_sendmailer_object = new direct_sendmailer_formtags ();
 				$g_sendmailer_object->recipients_define (array ($g_user_array['ddbusers_email'] => $g_username));

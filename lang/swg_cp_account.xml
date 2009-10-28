@@ -3,15 +3,27 @@
 
  <cp><account>
   <done>
+   <group>
+    <edit><input input="string" /></edit>
+    <new><input input="string" /></new>
+   </group>
+
    <profile>
     <new><input input="string" /></new>
     <reset><input input="string" /></reset>
    </profile>
+
+   <right>
+    <edit><input input="string" /></edit>
+    <new><input input="string" /></new>
+   </right>
   </done>
 
   <email><target><input input="string" /></target></email>
 
   <helper>
+   <group><id><input input="string" /></id></group>
+
    <registration>
     <email>
      <send><input input="string" /></send>
@@ -20,7 +32,33 @@
 
     <finalize><input input="string" /></finalize>
    </registration>
+
+   <right><id><input input="string" /></id></right>
   </helper>
+
+  <group>
+   <id><input input="string" /></id>
+   <desc><input input="string" /></desc>
+   <edit><input input="string" /></edit>
+   <input input="string" />
+
+   <member>
+    <list><empty><input input="string" /></empty></list>
+    <remove><input input="string" /></remove>
+   </member>
+
+   <members><input input="string" /></members>
+   <new><input input="string" /></new>
+   <rights><input input="string" /></rights>
+   <select><input input="string" /></select>
+
+   <selector>
+    <empty><input input="string" /></empty>
+    <input input="string" />
+    <mark><input input="string" /></mark>
+    <unmark><input input="string" /></unmark>
+   </selector>
+  </group>
 
   <profile>
    <new><input input="string" /></new>
@@ -40,6 +78,21 @@
    <finalize><input input="string" /></finalize>
   </registration>
 
+  <right>
+   <active><input input="string" /></active>
+   <id><input input="string" /></id>
+   <edit><input input="string" /></edit>
+   <input input="string" />
+   <new><input input="string" /></new>
+
+   <selector>
+    <empty><input input="string" /></empty>
+    <input input="string" />
+    <mark><input input="string" /></mark>
+    <unmark><input input="string" /></unmark>
+   </selector>
+  </right>
+
   <service><list><input input="string" /></list></service>
 
   <title>
@@ -49,5 +102,10 @@
 
   <validation><for><registration><input input="string" /></registration></for></validation>
  </account></cp>
+
+<errors><cp><account>
+ <gid><invalid><input input="string" /></invalid></gid>
+ <rid><invalid><input input="string" /></invalid></rid>
+</account></cp></errors>
 
 </swg_lang_file_v1>
