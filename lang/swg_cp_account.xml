@@ -38,9 +38,7 @@
 
   <group>
    <id><input input="string" /></id>
-   <desc><input input="string" /></desc>
    <edit><input input="string" /></edit>
-   <input input="string" />
 
    <member>
     <list><empty><input input="string" /></empty></list>
@@ -51,13 +49,6 @@
    <new><input input="string" /></new>
    <rights><input input="string" /></rights>
    <select><input input="string" /></select>
-
-   <selector>
-    <empty><input input="string" /></empty>
-    <input input="string" />
-    <mark><input input="string" /></mark>
-    <unmark><input input="string" /></unmark>
-   </selector>
   </group>
 
   <profile>
@@ -104,7 +95,6 @@
  </account></cp>
 
 <errors><cp><account>
- <gid><invalid><input input="string" /></invalid></gid>
  <rid><invalid><input input="string" /></invalid></rid>
 </account></cp></errors>
 

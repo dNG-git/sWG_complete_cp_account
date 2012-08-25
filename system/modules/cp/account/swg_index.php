@@ -45,7 +45,6 @@ NOTE_END //n*/
 * @copyright  (C) direct Netware Group - All rights reserved
 * @package    sWG
 * @subpackage cp_account
-* @uses       direct_product_iversion
 * @since      v0.1.00
 * @license    http://www.direct-netware.de/redirect.php?licenses;gpl
 *             GNU General Public License 2
@@ -79,40 +78,39 @@ case "services":
 {
 	if (USE_debug_reporting) { direct_debug (1,"sWG/#echo(__FILEPATH__)# _a=services_ (#echo(__LINE__)#)"); }
 
-	$direct_cachedata['output_page'] = (isset ($direct_settings['dsd']['page']) ? ($direct_classes['basic_functions']->inputfilter_number ($direct_settings['dsd']['page'])) : 1);
+	$direct_cachedata['output_page'] = (isset ($direct_settings['dsd']['page']) ? ($direct_globals['basic_functions']->inputfilterNumber ($direct_settings['dsd']['page'])) : 1);
 
-	$direct_cachedata['page_this'] = "m=cp&s=account;index&a=services&dsd=page+".$direct_cachedata['output_page'];
-	$direct_cachedata['page_backlink'] = "m=cp&a=services";
-	$direct_cachedata['page_homelink'] = "m=cp&a=services";
+	$direct_cachedata['page_this'] = "m=cp;s=account+index;a=services;dsd=page+".$direct_cachedata['output_page'];
+	$direct_cachedata['page_backlink'] = "m=cp;a=services";
+	$direct_cachedata['page_homelink'] = "m=cp;a=services";
 
-	if ($direct_classes['kernel']->service_init_default ())
+	if ($direct_globals['kernel']->serviceInitDefault ())
 	{
 	if ($direct_settings['cp_account'])
 	{
-	if (($direct_classes['kernel']->v_usertype_get_int ($direct_settings['user']['type']) > 3)||($direct_classes['kernel']->v_group_user_check_right ("cp_account")))
+	if (($direct_globals['kernel']->vUsertypeGetInt ($direct_settings['user']['type']) > 3)||($direct_globals['kernel']->vGroupUserCheckRight ("cp_account")))
 	{
 	//j// BOA
-	direct_output_related_manager ("cp_account_index_services","pre_module_service_action");
-	$direct_classes['kernel']->service_https ($direct_settings['cp_https_account'],$direct_cachedata['page_this']);
-	$direct_classes['basic_functions']->require_file ($direct_settings['path_system']."/classes/swg_formtags.php");
-	$direct_classes['basic_functions']->require_file ($direct_settings['path_system']."/functions/swg_service_list.php");
-	$direct_classes['basic_functions']->require_file ($direct_settings['path_system']."/functions/swg_tmp_storager.php");
+	$direct_globals['output']->relatedManager ("cp_account_index_services","pre_module_service_action");
+	$direct_globals['kernel']->serviceHttps ($direct_settings['cp_https_account'],$direct_cachedata['page_this']);
+	$direct_globals['basic_functions']->requireClass ('dNG\sWG\directFormtags');
+	$direct_globals['basic_functions']->requireFile ($direct_settings['path_system']."/functions/swg_service_list.php");
+	$direct_globals['basic_functions']->requireFile ($direct_settings['path_system']."/functions/swg_tmp_storager.php");
 	direct_local_integration ("cp_account");
 
 	direct_class_init ("formtags");
-	direct_class_init ("output");
-	$direct_classes['output']->options_insert (2,"servicemenu","m=cp&a=services",(direct_local_get ("core_back")),$direct_settings['serviceicon_default_back'],"url0");
+	$direct_globals['output']->optionsInsert (2,"servicemenu","m=cp;a=services",(direct_local_get ("core_back")),$direct_settings['serviceicon_default_back'],"url0");
 
 	$direct_cachedata['output_filter_fid'] = "cp_account_services";
 	$direct_cachedata['output_filter_source'] = urlencode (base64_encode ($direct_cachedata['page_this']));
 	$direct_cachedata['output_filter_text'] = "";
-	$direct_cachedata['output_filter_tid'] = $direct_settings['uuid'];
+	$direct_cachedata['output_filter_tid'] = $direct_globals['input']->uuidGet ();
 
-	$g_task_array = direct_tmp_storage_get ("evars",$direct_settings['uuid'],"","task_cache");
+	$g_task_array = direct_tmp_storage_get ("evars",$direct_cachedata['output_filter_tid'],"","task_cache");
 
-	if (($g_task_array)&&(isset ($g_task_array['core_filter_cp_account_services']))&&($g_task_array['uuid'] == $direct_settings['uuid']))
+	if (($g_task_array)&&(isset ($g_task_array['core_filter_cp_account_services']))&&($g_task_array['uuid'] == $direct_cachedata['output_filter_tid']))
 	{
-		$direct_cachedata['output_filter_text'] = $direct_classes['formtags']->decode ($g_task_array['core_filter_cp_account_services']);
+		$direct_cachedata['output_filter_text'] = $direct_globals['formtags']->decode ($g_task_array['core_filter_cp_account_services']);
 		$g_services_array = direct_service_list_search ("cp_account",$direct_cachedata['output_filter_text'],"title-desc_preg",$direct_cachedata['output_page']);
 	}
 	else { $g_services_array = direct_service_list ("cp_account",$direct_cachedata['output_page']); }
@@ -120,20 +118,19 @@ case "services":
 	$direct_cachedata['output_services'] = $g_services_array['list'];
 
 	$direct_cachedata['output_page'] = $g_services_array['data']['page'];
-	$direct_cachedata['output_page_url'] = "m=cp&s=account;index&a=services&dsd=";
+	$direct_cachedata['output_page_url'] = "m=cp;s=account+index;a=services;dsd=";
 	$direct_cachedata['output_pages'] = $g_services_array['data']['pages'];
 	$direct_cachedata['output_services_title'] = direct_local_get ("cp_account_service_list");
 
-	direct_output_related_manager ("cp_account_index_services","post_module_service_action");
-	$direct_classes['output']->oset ("default","service_list");
-	$direct_classes['output']->header (false,true,$direct_settings['p3p_url'],$direct_settings['p3p_cp']);
-	$direct_classes['output']->header_elements ("<script src='".(direct_linker_dynamic ("url0","s=cache&dsd=dfile+$direct_settings[path_mmedia]/swg_formbuilder.php.js++dbid+".$direct_settings['product_buildid'],true,false))."' type='text/javascript'><!-- // FormBuilder javascript functions // --></script>");
-	$direct_classes['output']->page_show (direct_local_get ("cp_account_service_list"));
+	$direct_globals['output']->header (false,true,$direct_settings['p3p_url'],$direct_settings['p3p_cp']);
+	$direct_globals['output']->relatedManager ("cp_account_index_services","post_module_service_action");
+	$direct_globals['output']->oset ("default","service_list");
+	$direct_globals['output']->outputSend (direct_local_get ("cp_account_service_list"));
 	//j// EOA
 	}
-	else { $direct_classes['error_functions']->error_page ("login","core_access_denied","sWG/#echo(__FILEPATH__)# _a=services_ (#echo(__LINE__)#)"); }
+	else { $direct_globals['output']->outputSendError ("login","core_access_denied","","sWG/#echo(__FILEPATH__)# _a=services_ (#echo(__LINE__)#)"); }
 	}
-	else { $direct_classes['error_functions']->error_page ("standard","core_service_inactive","sWG/#echo(__FILEPATH__)# _a=services_ (#echo(__LINE__)#)"); }
+	else { $direct_globals['output']->outputSendError ("standard","core_service_inactive","","sWG/#echo(__FILEPATH__)# _a=services_ (#echo(__LINE__)#)"); }
 	}
 
 	$direct_cachedata['core_service_activated'] = true;
